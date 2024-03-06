@@ -1,14 +1,14 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 20, // Waybar height (to be removed for auto height)
+    "height": 33, // Waybar height (to be removed for auto height)
     "spacing": 4, // Gaps between modules (4px)
     "margin-top": 4,
-    "margin-right": 10,
+    "margin-right": 4,
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["idle_inhibitor", "clock"],
-    "modules-right": ["pulseaudio", "pulseaudio#microphone", "custom/power_btn"],
+    "modules-right": ["custom/notifications", "pulseaudio", "pulseaudio#microphone", "custom/power_btn"],
 	// "bluetooth", "network", "battery", 
    // Modules configuration
    "hyprland/workspaces": {
@@ -22,11 +22,11 @@
            "3": " ",
            "4": " "
        },
-       "persistent_workspaces": {
+       "persistent-workspaces": {
            "1": [],
-	   "2": [],
-	   "3": [],
-	   "4": []
+		   "2": [],
+		   "3": [],
+		   "4": []
        }
     },
     "idle_inhibitor": {
@@ -39,7 +39,12 @@
     "clock": {
         "format": "{:%I:%M%p}  ",
         "tooltip-format": "{:  %A, %B %e %Y}" 
-    }, 
+    },
+    "custom/notifications": {
+    	"format": " ",
+        "on-click": "bash -c 'swaync-client -t'",
+        "tooltip": false
+    },
     "battery": {
         "states": {
             // "good": 95,
@@ -55,38 +60,30 @@
         "format-icons": [" ", " ", " ", " ", " "]
     },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
+        "format-wifi": "{essid} ({signalStrength}%)  ",
+        "format-ethernet": " ",
         "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
         "format": "{icon}",
-        "format-muted": "",
-	"on-click": "~/.config/waybar/scripts/volume --toggle",
+        "format-muted": " ",
+		"on-click": "~/.config/waybar/scripts/volume --toggle",
         "on-click-right": "pavucontrol",
         "on-scroll-up": "~/.config/waybar/scripts/volume --inc",
         "on-scroll-down": "~/.config/waybar/scripts/volume --dec",
         "scroll-step": 5,
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": " ",
-            "default": ["", "", ""]
+            "headset": " ",
+            "default": [" ", " ", " "]
         },
  	"tooltip": true,
-	"tooltip-format": "{icon} at {volume}%"
+	"tooltip-format": "{icon}  at {volume}%"
     },
     "pulseaudio#microphone": {
         "format": "{format_source}",
-        "format-source": "",
-        "format-source-muted": "",
+        "format-source": " ",
+        "format-source-muted": " ",
         "on-click": "~/.config/waybar/scripts/volume --toggle-mic",
         "on-click-right": "pavucontrol",
         "on-scroll-up": "~/.config/waybar/scripts/volume --mic-inc",
@@ -97,7 +94,7 @@
     },
     "custom/power_btn": {
         "format": " ",
-        "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
+        "on-click": "bash -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
         "tooltip": false
     }
 }
