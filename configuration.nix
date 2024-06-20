@@ -17,11 +17,17 @@
   networking.hostName = "enterprise"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
+  # Weekly garbage collection
   nix.gc = {
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 30d";
   };
+
+  # I use zsh btw :^) (comment out to use bash... aliases are the same)
+  environment.shells = with pkgs; [ zsh ];
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
 
   # Enable networking
   networking.networkmanager.enable = true;
