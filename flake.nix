@@ -1,5 +1,5 @@
 {
-  description = "Jay's configs";
+  description = "Jay's config";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.05";
@@ -9,7 +9,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = inputs @ { self, nixpkgs, home-manager, ... }:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -19,15 +19,19 @@
       nixosConfigurations = {
         enterprise = lib.nixosSystem {
           inherit system;
-          modules = [ ./configuration.nix ];
+          modules = [ 
+            ./nixos/nixos.nix
+          ];
         };
       };
       
       # User configuration
       homeConfigurations = {
         jay = home-manager.lib.homeManagerConfiguration {
-	  inherit pkgs;
-          modules = [ ./home.nix ];
+	      inherit pkgs;
+          modules = [
+            ./home/home.nix
+          ];
         };
 
       };
