@@ -23,6 +23,7 @@
     firefox
     neofetch
     obsidian
+    steam
 
     # Programming tools
     gitkraken
@@ -32,7 +33,7 @@
     gnomeExtensions.appindicator
     gnomeExtensions.blur-my-shell
     gnomeExtensions.gnome-40-ui-improvements
-    #gnomeExtensions.hide-top-bar
+    # gnomeExtensions.hide-top-bar
     gnomeExtensions.just-perfection
     gnomeExtensions.wallpaper-slideshow
 

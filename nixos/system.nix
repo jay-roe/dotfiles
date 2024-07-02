@@ -18,8 +18,11 @@
 
   # Services
   services = {
-    xserver.enable = true;
-    printing.enable = true; # Enable CUPS to print documents(?)
+    xserver = {
+      enable = true;
+      excludePackages = [ pkgs.xterm ];
+    };
+    # printing.enable = true; # Enable CUPS to print documents
   };
 
   # Virtualization
