@@ -15,6 +15,7 @@
     neovim
     git
   ];
+  programs.steam.enable = true; # Required at system level. Must reboot after enabling
 
   # Services
   services = {

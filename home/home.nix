@@ -23,7 +23,6 @@
     firefox
     neofetch
     obsidian
-    steam
 
     # Programming tools
     gitkraken
