@@ -4,7 +4,6 @@
 
   imports = [
     # import nix configs
-    ./config/gnome.nix
     ./config/nvim.nix
     ./config/sh.nix
   ];
@@ -27,14 +26,6 @@
     # Programming tools
     gitkraken
     vscodium
-
-    # Gnome
-    gnomeExtensions.appindicator
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.gnome-40-ui-improvements
-    # gnomeExtensions.hide-top-bar
-    gnomeExtensions.just-perfection
-    gnomeExtensions.wallpaper-slideshow
 
     # Fonts
     (pkgs.nerdfonts.override {
