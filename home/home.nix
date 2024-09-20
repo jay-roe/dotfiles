@@ -6,6 +6,7 @@
     # import nix configs
     ./config/nvim.nix
     ./config/sh.nix
+    ./config/wezterm.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -22,10 +23,17 @@
     firefox
     neofetch
     obsidian
+    qalculate-gtk
+    vlc
 
     # Programming tools
     gitkraken
+    jetbrains-toolbox
     vscodium
+
+    # Terminal stuff
+    meslo-lgs-nf  # font for powerlevel10k
+    wezterm  # emulator
 
     # Fonts
     (pkgs.nerdfonts.override {
@@ -34,6 +42,13 @@
       ];
     })
   ];
+
+  # Cursor
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Ice";
+  };
 
   home.stateVersion = "24.05";
 
