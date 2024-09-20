@@ -81,8 +81,15 @@
   };
 
   # Bootloader
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    grub = {
+      enable = true;
+      devices = [ "nodev" ];
+      efiSupport = true;
+      useOSProber = true;
+    };
+  };
 
   # Networking
   networking.hostName = "enterprise";
@@ -99,6 +106,9 @@
   environment.shells = with pkgs; [ zsh bash ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
+
+  # Time
+  time.hardwareClockInLocalTime = true;
 
   # Base version
   system.stateVersion = "24.05";
