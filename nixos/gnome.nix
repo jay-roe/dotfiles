@@ -19,6 +19,7 @@
 
       gnome.excludePackages =
         (with pkgs; [
+          gnome-console
           gnome-text-editor
           gnome-photos
           gnome-tour
@@ -41,6 +42,7 @@
           simple-scan
           file-roller
           seahorse
+          gnome-calculator
           gnome-disk-utility
           gnome-contacts
           gnome-initial-setup
