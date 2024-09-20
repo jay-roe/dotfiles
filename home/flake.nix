@@ -20,7 +20,7 @@
           {
             # Packages in shell
             nativeBuildInputs = with pkgs; [
-              ruby_3_3
+              cowsay
             ];
 
             # On shell start
